@@ -27,9 +27,10 @@ public class OrderService {
                 .stream()
                 .map(this::mapToDto)
                 .toList();
-		//order.setOrderLineItemsList(orderLineItems);
+
+        order.setOrderLineItemsList(orderLineItems);
 		
-		//orderRepository.save(order);
+		orderRepository.save(order);
 		
 	}
 
