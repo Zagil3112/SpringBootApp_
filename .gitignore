@@ -1,1 +1,4 @@
 /.metadata/
+/ProductService/data/
+/OrderService/mysql/
+/OrderService/mysql/mysql.sock
