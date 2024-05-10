@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -24,6 +26,12 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)	
 	private Long id;
 	private String orderNumber;
+	private String skuCode;
+	private BigDecimal price;
+	private Integer quantity;
+	
+	
+	/*
 	@OneToMany(cascade = CascadeType.ALL )
-	private List<OrderLineItems> orderLineItemsList ;
+	private List<OrderLineItems> orderLineItemsList ;*/
 }

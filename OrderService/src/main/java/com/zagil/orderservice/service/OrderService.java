@@ -19,13 +19,24 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@Transactional	
 public class OrderService {
 	
 	private final OrderRepository orderRepository;
-	private final WebClient webClient;
+	//private final WebClient webClient;
 	
+	public void placeOrder(OrderRequest orderRequest) {
+		// 
+		Order order = new Order();
+		order.setOrderNumber(UUID.randomUUID().toString());
+		order.setPrice(orderRequest.price());
+		order.setSkuCode(orderRequest.skuCode());
+		order.setQuantity(orderRequest.quantity());
+		orderRepository.save(order);
+		
+		
+	}
 	
+	/*
 	public void placeOrder(OrderRequest orderRequest) {
 		Order order = new Order();
 		order.setOrderNumber(UUID.randomUUID().toString());
@@ -69,5 +80,5 @@ public class OrderService {
         orderLineItems.setQuantity(orderLineItemsDto.getQuantity());
         orderLineItems.setSkuCode(orderLineItemsDto.getSkuCode());
         return orderLineItems;
-    }
+    }*/
 }
